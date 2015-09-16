@@ -16,6 +16,7 @@ gen/
 
 # Ignore gradle files
 .gradle/
+gradle/
 build/
 
 # Local configuration file (sdk path, etc)
@@ -30,3 +31,7 @@ proguard/
 *.jar
 *.war
 *.ear
+
+# others #
+.idea
+.iml # for now I don't want this
