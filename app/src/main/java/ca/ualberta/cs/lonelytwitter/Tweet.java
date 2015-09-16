@@ -10,7 +10,7 @@ public class Tweet {
     private Date date;
 
     public Tweet(String text, Date date){
-        this.text = text;
+        this.setText(text);
         this.date = date;
     }
 
@@ -25,7 +25,9 @@ public class Tweet {
     }
 
     public void setText(String text) {
-        this.text = text;
+        if(text.length() <= 140) {
+            this.text = text;
+        }
     }
 
     public Date getDate() {
