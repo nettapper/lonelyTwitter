@@ -30,6 +30,8 @@ public abstract class Tweet implements Tweetable {
     public void setText(String text) {
         if(text.length() <= 140) {
             this.text = text;
+        } else {
+            throw new IllegalArgumentException("Tweet was too long!");
         }
     }
 
