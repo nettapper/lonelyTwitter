@@ -1,6 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,6 +11,7 @@ public abstract class Tweet implements Tweetable {
     // can force a property, eg. implements comparable allows tweets to be sorted
     private String text;
     private Date date;
+    private ArrayList<CurrentMood> listOfMoods;
 
     public Tweet(String text, Date date){
         try {
@@ -30,6 +32,10 @@ public abstract class Tweet implements Tweetable {
     }
 
     public abstract Boolean isImportant();
+
+    public ArrayList<CurrentMood> getListOfMoods(){
+        return this.listOfMoods;
+    }
 
     // Add some getters and setters
     public String getText() {
