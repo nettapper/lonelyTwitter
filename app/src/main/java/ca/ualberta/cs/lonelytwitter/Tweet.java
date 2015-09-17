@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by ccdunn on 9/16/15.
  */
 public abstract class Tweet implements Tweetable {
+    // can force a property, eg. implements comparable allows tweets to be sorted
     private String text;
     private Date date;
 
