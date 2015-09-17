@@ -14,7 +14,12 @@ public class ImportantTweet extends Tweet {
         super(text);
     }
 
+    @Override
     public Boolean isImportant(){
         return Boolean.TRUE;
+    }
+
+    public String getText(){
+        return "!!!" + super.getText();
     }
 }

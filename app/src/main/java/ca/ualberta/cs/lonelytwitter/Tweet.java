@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by ccdunn on 9/16/15.
  */
-public class Tweet {
+public abstract class Tweet {
     private String text;
     private Date date;
 
@@ -18,6 +18,8 @@ public class Tweet {
         this.text = text;
         this.date = new Date(); // defaluts to current time
     }
+
+    public abstract Boolean isImportant();
 
     // Add some getters and setters
     public String getText() {

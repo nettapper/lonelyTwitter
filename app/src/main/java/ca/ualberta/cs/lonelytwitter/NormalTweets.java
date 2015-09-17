@@ -15,6 +15,7 @@ public class NormalTweets extends Tweet {
         super(text);
     }
 
+    @Override
     public Boolean isImportant(){
         return Boolean.FALSE;
     }
