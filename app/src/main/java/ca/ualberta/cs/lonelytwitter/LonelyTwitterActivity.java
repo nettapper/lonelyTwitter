@@ -27,6 +27,10 @@ public class LonelyTwitterActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		Tweet importantTweet = new ImportantTweet("");
+		// importantTweet.isImportant();  // this will complain
+		((ImportantTweet) importantTweet).isImportant();  // this should be ok, we are donwcasting, but this is bad practice
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 

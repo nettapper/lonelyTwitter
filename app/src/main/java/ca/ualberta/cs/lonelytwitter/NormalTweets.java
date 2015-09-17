@@ -5,16 +5,17 @@ import java.util.Date;
 /**
  * Created by ccdunn on 9/16/15.
  */
-public class ImportantTweet extends Tweet {
-    public ImportantTweet(String text, Date date) {
+public class NormalTweets extends Tweet {
+
+    public NormalTweets(String text, Date date) {
         super(text, date);
     }
 
-    public ImportantTweet(String text) {
+    public NormalTweets(String text) {
         super(text);
     }
 
     public Boolean isImportant(){
-        return Boolean.TRUE;
+        return Boolean.FALSE;
     }
 }
