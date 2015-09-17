@@ -27,6 +27,9 @@ public class LonelyTwitterActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		// an example generic arraylist of type Tweet
+		ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
+
 		Tweet importantTweet = new ImportantTweet("");
 		// importantTweet.isImportant();  // this will complain
 		((ImportantTweet) importantTweet).isImportant();  // this should be ok, we are donwcasting, but this is bad practice
