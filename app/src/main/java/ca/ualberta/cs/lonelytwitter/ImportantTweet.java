@@ -19,6 +19,8 @@ public class ImportantTweet extends Tweet {
         return Boolean.TRUE;
     }
 
+    // this helps the IDE make sure that your actually overrideing rather than misspelling a method
+    @Override
     public String getText(){
         return "!!!" + super.getText();
     }
