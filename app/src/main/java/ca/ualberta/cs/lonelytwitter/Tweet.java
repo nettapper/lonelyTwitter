@@ -16,6 +16,10 @@ public abstract class Tweet implements Tweetable {
             this.setText(text);
         } catch (IOException e) {
             // do something with e...
+
+            // if you need to catch the exception but don't know how to handle it...
+            // just raise the exception
+            throw new RuntimeException(e);
         }
         this.date = date;
     }
