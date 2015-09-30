@@ -6,4 +6,14 @@ package ca.ualberta.cs.lonelytwitter;
 public class TweetList {
    public void deleteTweet(Tweet tweet){
    }
+
+   public void add(Tweet tweet) {
+   }
+
+   public void delete(Tweet tweet) {
+   }
+
+   public boolean hasTweet(Tweet tweet) {
+      return false;
+   }
 }
