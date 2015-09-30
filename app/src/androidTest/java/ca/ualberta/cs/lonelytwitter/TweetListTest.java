@@ -26,7 +26,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     public void testDeleteTweet(){
         TweetList tweetList = new TweetList();
-        Tweet tweet = new NormalTweet("del me");
+        Tweet tweet = new NormalTweet("test tweet");
         tweetList.add(tweet);
         tweetList.delete(tweet);
         assertFalse(tweetList.hasTweet(tweet));
@@ -34,7 +34,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     public void testHasTweet(){
         TweetList tweetList = new TweetList();
-        Tweet tweet = new NormalTweet("del me");
+        Tweet tweet = new NormalTweet("test tweet");
         assertFalse(tweetList.hasTweet(tweet));
         tweetList.add(tweet);
         assertTrue(tweetList.hasTweet(tweet));
@@ -42,20 +42,22 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     public void testAddTweet(){
         TweetList tweetList = new TweetList();
-        Tweet tweet = new NormalTweet("del me");
+        Tweet tweet = new NormalTweet("test tweet");
         tweetList.add(tweet);
         assertTrue(tweetList.hasTweet(tweet));
     }
 
     public void testTweetCount(){
-
     }
 
     public void testGetTweet(){
-
+        TweetList tweetList = new TweetList();
+        Tweet tweet = new NormalTweet("test tweet");
+        tweetList.add(tweet);
+        Tweet returnedTweet = tweetList.getTweet(0);
+        assertTrue((tweet.date.equals(returnedTweet.date)) && tweet.getText().equals(returnedTweet.getText()));
     }
 
     public void testGetTweetType(){
-
     }
 }
