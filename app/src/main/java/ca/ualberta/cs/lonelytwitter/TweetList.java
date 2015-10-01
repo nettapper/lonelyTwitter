@@ -23,4 +23,8 @@ public class TweetList {
    public Tweet getTweet(int index) {
       return tweets.get(index);
    }
+
+   public int count() {
+      return tweets.size();
+   }
 }
