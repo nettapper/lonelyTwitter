@@ -5,11 +5,13 @@ import java.util.ArrayList;
 /**
  * Created by ccdunn on 9/30/15.
  */
-public class TweetList {
+public class TweetList implements MyObservable {
    private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+   private ArrayList<MyObserver> myObservers = new ArrayList<MyObserver>();
 
    public void add(Tweet tweet) {
       tweets.add(tweet);
+      notifyObservers();
    }
 
    public void delete(Tweet tweet) {
@@ -36,6 +38,7 @@ public class TweetList {
    public void addTweet(Tweet tweet) throws IllegalArgumentException {
       if(!this.hasTweet(tweet)){
          tweets.add(tweet);
+         notifyObservers();
       } else throw new IllegalArgumentException();
    }
 
@@ -54,5 +57,15 @@ public class TweetList {
 
    public int getCount(){
       return this.count();
+   }
+
+   public void addObserver(MyObserver observer) {
+      myObservers.add(observer);
+   }
+
+   public void notifyObservers() {
+      for (MyObserver o:myObservers) {
+         o.myNotify();
+      }
    }
 }

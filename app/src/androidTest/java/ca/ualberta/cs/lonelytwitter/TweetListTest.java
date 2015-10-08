@@ -6,11 +6,13 @@ import junit.framework.TestCase;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Observable;
 
 /**
  * Created by ccdunn on 9/30/15.
  */
-public class TweetListTest extends ActivityInstrumentationTestCase2 {
+public class TweetListTest extends ActivityInstrumentationTestCase2 implements MyObserver {
+    private boolean wasNotified = false;
 
     /*
     Steps in Test Driven Dev
@@ -138,5 +140,19 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         tweetList.addTweet(tweet);
         tweetList.addTweet(tweet2);
         assertEquals(tweetList.getCount(), 2);
+    }
+
+    public void testTweetListChanged(){
+        TweetList tweetList = new TweetList();
+        Tweet tweet = new NormalTweet("helllo");
+        tweetList.addObserver(this);
+        wasNotified = false;
+        assertFalse(wasNotified);
+        tweetList.addTweet(tweet);
+        assertTrue(wasNotified);
+    }
+
+    public void myNotify() {
+        wasNotified = true;
     }
 }
