@@ -13,6 +13,9 @@ import junit.framework.TestCase;
  */
 public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 {
 
+    private EditText bodyText;
+    private Button saveButton;
+
     public LonelyTwitterActivityTest() {
         super(ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity.class);
     }
@@ -30,11 +33,21 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
         activity.getTweets().clear();
 
         // add a tweet
-        EditText bodyText = activity.getBodyText();
-        bodyText.setText("Test Tweet");
+        bodyText = activity.getBodyText();
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+                bodyText.setText("Test Tweet");
+            }
+        });
+        getInstrumentation().waitForIdleSync();
 
-        Button saveButton = activity.getSaveButton();
-        saveButton.performClick();
+        saveButton = activity.getSaveButton();
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+                saveButton.performClick();
+            }
+        });
+        getInstrumentation().waitForIdleSync();
 
         // make sure the tweet was actually added
         ListView oldTweetsList = activity.getOldTweetsList();
