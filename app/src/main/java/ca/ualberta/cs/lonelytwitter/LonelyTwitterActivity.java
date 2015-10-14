@@ -28,11 +28,28 @@ import com.google.gson.reflect.TypeToken;
 public class LonelyTwitterActivity extends Activity implements MyObserver {
 
     private static final String FILENAME = "file.sav";
+
+    public EditText getBodyText() {
+        return bodyText;
+    }
+
+    public Button getSaveButton(){
+        return saveButton;
+    }
+
+    public ArrayList<Tweet> getTweets(){
+        return tweets;
+    }
+
+    public ListView getOldTweetsList(){
+        return oldTweetsList;
+    }
+
     private EditText bodyText;
     private ListView oldTweetsList;
     private ArrayList<Tweet> tweets;
     private ArrayAdapter<Tweet> adapter;
-
+    private Button saveButton;
 
     /**
      * Called when the activity is first created.
@@ -44,7 +61,7 @@ public class LonelyTwitterActivity extends Activity implements MyObserver {
         setContentView(R.layout.main);
 
         bodyText = (EditText) findViewById(R.id.body);
-        Button saveButton = (Button) findViewById(R.id.save);
+        saveButton = (Button) findViewById(R.id.save);
         oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
