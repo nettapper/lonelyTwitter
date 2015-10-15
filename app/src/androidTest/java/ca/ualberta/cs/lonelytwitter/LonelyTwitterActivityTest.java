@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import junit.framework.TestCase;
 
@@ -82,6 +83,9 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
         getInstrumentation().removeMonitor(receiverActivityMonitor);
 
         // test that the editor stats up with the right tweet in it to edit
+        EditText editTweetText = receiverActivity.getEditText();
+        TextView editTweetActivityText = activity.getBodyText();
+        assertEquals(editTweetActivityText.getText(), tweet.getText());
 
         // test that we can edit that tweet
 

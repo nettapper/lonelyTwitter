@@ -4,8 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class EditTweetActivity extends Activity {
+    public EditText getEditText(){
+        return editText;
+    }
+
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
