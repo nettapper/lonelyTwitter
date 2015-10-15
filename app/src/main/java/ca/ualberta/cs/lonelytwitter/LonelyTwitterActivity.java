@@ -15,8 +15,10 @@ import java.util.Observer;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +30,7 @@ import com.google.gson.reflect.TypeToken;
 public class LonelyTwitterActivity extends Activity implements MyObserver {
 
     private static final String FILENAME = "file.sav";
+    private LonelyTwitterActivity activity = this;
 
     public EditText getBodyText() {
         return bodyText;
@@ -65,13 +68,19 @@ public class LonelyTwitterActivity extends Activity implements MyObserver {
         oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View v) {
                 setResult(RESULT_OK);
                 String text = bodyText.getText().toString(); // move to controller
                 tweets.add(new NormalTweet(text)); // move to controller
                 saveInFile();  // move to model
                 adapter.notifyDataSetChanged();
+            }
+        });
+
+        oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(activity, EditTweetActivity.class);
+                startActivity(intent);
             }
         });
     }
