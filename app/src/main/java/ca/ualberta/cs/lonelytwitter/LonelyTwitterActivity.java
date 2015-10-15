@@ -4,17 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Observer;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -64,7 +60,7 @@ public class LonelyTwitterActivity extends Activity implements MyObserver {
         setContentView(R.layout.main);
 
         bodyText = (EditText) findViewById(R.id.body);
-        saveButton = (Button) findViewById(R.id.save);
+        saveButton = (Button) findViewById(R.id.editTweetActivity_save);
         oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
         saveButton.setOnClickListener(new View.OnClickListener() {

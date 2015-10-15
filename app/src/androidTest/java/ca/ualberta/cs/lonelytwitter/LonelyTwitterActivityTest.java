@@ -81,6 +81,16 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
         // Remove the ActivityMonitor
         getInstrumentation().removeMonitor(receiverActivityMonitor);
 
+        // test that the editor stats up with the right tweet in it to edit
+
+        // test that we can edit that tweet
+
+        // test that we can push some kind of save button for that tweet
+
+        // the new modified tweet text was actually saved
+
+        // he new modified tweet text is displayed on the other activity
+
         // clean up our activities at the end of our test
         receiverActivity.finish();
     }
